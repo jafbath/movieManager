@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Index Page</title>
+</head>
+
+<body>
+
+    <h1>Movies</h1>
+    <ul>
+        <% for (let i = 0; i < movies.length; i++) {%>
+            <l1>
+                <h2>
+                    <%= movies[i].title %>
+                </h2>
+                <p>Directed by: <%= movies[i].director %>
+                </p>
+                <p>Genres: <%= movies[i].genre %>
+                </p>
+                <p>Rating(number between 1-10): <%= movies[i].rating %>
+                </p>
+                <% if (movies[i].watchAgain === true) { %>
+                    <p>This movie is worth watching again.</p>
+                    <%} else {%>
+                        <p>This movie is not worth watching again.</p>
+                        <%}%>
+                            <% if ( movies[i].image ) {%>
+                                <img src="<%=movies[i].image %>" alt="Movie image">
+                                <%}%>
+
+            </l1>
+            <%}%>
+    </ul>
+
+</body>
+
+</html>
