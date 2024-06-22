@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Edit Movie Page</h1>
+    <form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
+        Title: <input type="text" name="title" value="<%=movie.title%>"><br>
+        Director: <input type="text" name="director" value="<%=movie.director%>"><br>
+        Genres: <br>
+        <input type="checkbox" name="genre" value="Action">Action <br>
+        <input type="checkbox" name="genre" value="Thriller">Thriller <br>
+        <input type="checkbox" name="genre" value="Mystery">Mystery<br>
+        <input type="checkbox" name="genre" value="Comedy">Comedy <br>
+        <input type="checkbox" name="genre" value="Horror">Horror<br>
+        <input type="checkbox" name="genre" value="Drama">Drama<br>
+        <input type="checkbox" name="genre" value="Fantasy">Fantasy<br>
+        <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi<br>
+        <input type="checkbox" name="genre" value="Documentary">Documentary<br>
+        Rating: <input type="number" name="rating" value="<%=movie.rating%>"><br>
+        Image: <input type="text" name="image" value="<%=movie.image%>"><br>
+        Would watch again: <input type="checkbox" name="watchAgain" <% if(movie.watchAgain = true){ %>
+            checked
+        <%}%>
+        >
+        
+        <input type="submit" name="" value="Submit Changes">
+    </form>
+</body>
+</html>

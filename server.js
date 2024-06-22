@@ -80,20 +80,29 @@ app.get(`/movies/new`, (req,res) => {
 
 //DELETE
 
-app.delete(`/movies/:id`, (req,res) => {
-
+app.delete(`/movies/:id`, async (req,res) => {
+    try{
+        await Movie.findByIdAndDelete(req.params.id)
+        res.redirect("/movies")
+    }catch(err) {
+        console.error(err)
+    }
 })
 
 //UPDATE
 
-app.put(`/movies/:id`, (req,res) => {
+app.put(`/movies/:id`, async (req,res) => {
     if(req.body.watchAgain === `on`){
-        req.body.watchAgain === true
+        req.body.watchAgain = true
     }else {
-        req.body.watchAgain === false
+        req.body.watchAgain = false
     }
-    movies[req.params.id] = req.body
-    res.redirect(`/movies`)
+    try {
+        const updateModel = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        res.redirect("/movies")
+    }catch(err) {
+        console.error(err)
+    }
 })
 
 //CREATE
@@ -115,18 +124,26 @@ app.post(`/movies`, async (req,res) => {
 
 //EDIT
 
-app.get('/movies/:id/edit', (req, res)=>{
-	res.render('edit.ejs', 
-        { 
-			movie: movies[req.params.index], 
-			id: req.params.index 
-		}
-	)
+app.get('/movies/:id/edit', async (req, res)=>{
+    try {
+        const foundMovie = await Movie.findById(req.params.id)
+        res.render("edit.ejs", { movie: foundMovie})
+    }catch(err) {
+        console.error(err)
+    }
 })
+	
 
 //SHOW
 
-app.get(`/movies/:id`)
+app.get(`/movies/:id`, async (req,res) => {
+    try {
+        const foundMovie = await Movie.findById(req.params.id)
+        res.render("show.ejs", { movie: foundMovie })
+    }catch(err) {
+        console.error(err)
+    }
+})
 
 
 
