@@ -9,23 +9,27 @@
 
 <body>
 
-    <h1>Movies</h1>
+    <h1>Movie Manager</h1>
+    <nav>
+        <a href="/movies/new">Create a new movie</a>
+    </nav>
     <ul>
         <% for (let i = 0; i < movies.length; i++) {%>
             <l1>
                 <h2>
-                    <%= movies[i].title %>
+                    <a href="/movies/<%=movies[i].id %>"><%= movies[i].title %></a>
+                    
                 </h2>
                 <p>Directed by: <%= movies[i].director %>
                 </p>
                 <p>Genres: <%= movies[i].genre %>
                 </p>
-                <p>Rating(number between 1-10): <%= movies[i].rating %>
+                <p>Rating(1-10): <%= movies[i].rating %>
                 </p>
                 <% if (movies[i].watchAgain === true) { %>
-                    <p>This movie is worth watching again.</p>
+                    <p>Would love to watch this again!</p>
                     <%} else {%>
-                        <p>This movie is not worth watching again.</p>
+                        <p>Not really worth watching again.</p>
                         <%}%>
                             <% if ( movies[i].image ) {%>
                                 <img src="<%=movies[i].image %>" alt="Movie image">

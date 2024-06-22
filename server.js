@@ -1,13 +1,13 @@
 const express = require(`express`)
 const app = express()
-// const mongoose = require(`mongoose`)
+const mongoose = require(`mongoose`)
 const port = process.env.PORT || 4000
 const methodOverride = require(`method-override`)
 // const moviesControllers = require(`./controllers/movies`)
 
 //DATABASE
 
-const movies = require(`./models/movies`)
+const Movie = require(`./models/movies`)
 // const Movie = require("./models/movies")
 
 
@@ -18,18 +18,18 @@ app.use(express.urlencoded({extended:true}))
 app.use(methodOverride(`_method`))
 // app.use(`/movies`,moviesControllers)
 
-// const mongoURI = `mongodb+srv://jafbath:ripper11@moviemanager.82w3xlf.mongodb.net/`
+const mongoURI = `mongodb+srv://jafbath:ripper11@moviemanager.82w3xlf.mongodb.net/`
 
-// async function connectToMongo() {
-//     try{
-//         await mongoose.connect(mongoURI)
-//         console.log(`The connection with MongoDB is established`)
-//     } catch(err) {
-//         console.error(`Error connecting to MongoDB: `, err)
-//     }
-// }
+async function connectToMongo() {
+    try{
+        await mongoose.connect(mongoURI)
+        console.log(`The connection with MongoDB is established`)
+    } catch(err) {
+        console.error(`Error connecting to MongoDB: `, err)
+    }
+}
 
-// connectToMongo()
+connectToMongo()
 
 
 //INDUCES
@@ -61,10 +61,15 @@ app.use(methodOverride(`_method`))
 
 //INDEX
 
-app.get(`/movies`,(req,res) => {
+app.get(`/movies`, async (req,res) => {
+    try{
+        const allMovies = await Movie.find({})
+        res.render(`index.ejs`, {movies: allMovies })
+    }catch(err) {
+        console.error(err)
+    }
+})
     
-        res.render(`index.ejs`, {movies})
-        }) 
 
 
 //NEW
@@ -93,15 +98,19 @@ app.put(`/movies/:id`, (req,res) => {
 
 //CREATE
 
-app.post(`/movies`, (req,res) => {
+app.post(`/movies`, async (req,res) => {
     console.log(req.body)
     if (req.body.watchAgain === `on`) {
-        req.body.watchAgain === true
+        req.body.watchAgain = true
     } else {
-        req.body.watchAgain === false
+        req.body.watchAgain = false
     }
-    movies.push(req.body)
-    res.redirect(`/movies`)
+    try{
+        const createdMovie = await Movie.create(req.body)
+        res.redirect(`/movies`)
+    }catch(err) {
+        console.error(err)
+    }
 })
 
 //EDIT
