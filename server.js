@@ -1,7 +1,7 @@
 const express = require(`express`)
 const app = express()
 const methodOverride = require(`method-override`)
-require(`dotenv`).config()
+require("dotenv").config()
 const mongoose = require(`mongoose`)
 const port = process.env.PORT || 4000
 const moviesController = require(`./controllers/movies`)
