@@ -1,25 +1,18 @@
 const express = require(`express`)
 const app = express()
+const methodOverride = require(`method-override`)
 const mongoose = require(`mongoose`)
 require(`dotenv`).config()
 const port = process.env.PORT || 4000
-const methodOverride = require(`method-override`)
 const moviesController = require(`./controllers/movies`)
 
 
+const mongoURI = process.env.mongoURI
 //DATABASE
 
 const Movie = require(`./models/movies`)
 
 
-//MIDDLEWARE
-app.use(express.static(`public`))
-app.use(express.urlencoded({extended:true}))
-app.use(methodOverride(`_method`))
-app.use(`/movies`, moviesController)
-
-
-const mongoURI = process.env.mongoURI
 
 async function connectToMongo() {
     try{
@@ -35,6 +28,13 @@ connectToMongo()
 
 //INDUCES
 
+//MIDDLEWARE
+app.use(express.static(`public`))
+app.use(express.urlencoded({extended:true}))
+app.use(methodOverride(`_method`))
+
+//CONTROLLERS
+app.use(`/movies`, moviesController)
 
 //SERVER
 app.listen(port, () => {

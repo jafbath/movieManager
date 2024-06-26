@@ -34,10 +34,10 @@ Movie Manager is a personal database of movies that you have seen that you can s
 * Implement further CSS so the user can choose between different themes by pressing buttons.
 
 ## <a name="deployment"></a>Deployed Link
-[Github](https://jafbath.github.io/blackjack/)
+[Github](https://jafbath.github.io/movieManager/)
 
 * You can view the repository:
-[Github.com](https://github.com/jafbath/blackjack)
+[Github.com](https://github.com/jafbath/movieManager)
 * If unable to view please go live locally through VS Code
 
 ## <a name="author"></a>About the Author
