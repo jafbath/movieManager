@@ -1,8 +1,8 @@
 const express = require(`express`)
 const app = express()
 const methodOverride = require(`method-override`)
-const mongoose = require(`mongoose`)
 require(`dotenv`).config()
+const mongoose = require(`mongoose`)
 const port = process.env.PORT || 4000
 const moviesController = require(`./controllers/movies`)
 
@@ -24,9 +24,9 @@ app.use(`/movies`, moviesController)
 async function connectToMongo() {
     try{
         await mongoose.connect(mongoURI)
-        console.log(`The connection with MongoDB is established`)
+        console.log("The connection with MongoDB is established")
     } catch(err) {
-        console.error(`Error connecting to MongoDB: `, err)
+        console.error("Error connecting to MongoDB: ", err)
     }
 }
 
