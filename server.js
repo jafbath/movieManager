@@ -7,7 +7,7 @@ const port = process.env.PORT || 4000
 const moviesController = require(`./controllers/movies`)
 
 
-const mongoURI = process.env.mongoURI
+const mongoURI = process.env.MONGOURI
 //DATABASE
 
 const Movie = require(`./models/movies`)
