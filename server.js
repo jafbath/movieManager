@@ -12,6 +12,13 @@ const mongoURI = process.env.mongoURI
 
 const Movie = require(`./models/movies`)
 
+//MIDDLEWARE
+app.use(express.static(`public`))
+app.use(express.urlencoded({extended:true}))
+app.use(methodOverride(`_method`))
+
+//CONTROLLERS
+app.use(`/movies`, moviesController)
 
 
 async function connectToMongo() {
@@ -28,13 +35,6 @@ connectToMongo()
 
 //INDUCES
 
-//MIDDLEWARE
-app.use(express.static(`public`))
-app.use(express.urlencoded({extended:true}))
-app.use(methodOverride(`_method`))
-
-//CONTROLLERS
-app.use(`/movies`, moviesController)
 
 //SERVER
 app.listen(port, () => {
