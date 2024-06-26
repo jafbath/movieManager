@@ -48,7 +48,7 @@ router.get(`/new`, (req,res) => {
 
 //DELETE
 
-router.delete(`/movies/:id`, async (req,res) => {
+router.delete(`/:id`, async (req,res) => {
   try{
       await Movie.findByIdAndDelete(req.params.id)
       res.redirect(`/movies`)
@@ -76,7 +76,6 @@ router.put(`/:id`, async (req,res) => {
 //CREATE
 
 router.post(`/`, async (req,res) => {
-  console.log(req.body)
   if (req.body.watchAgain === `on`) {
       req.body.watchAgain = true
   } else {

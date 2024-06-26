@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Movie Page</title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body class="newPage">
     <h1>New Movie Page</h1>
         <form action="/movies" method="POST">
             Title: <input type="text" name="title"> <br>
@@ -21,7 +22,7 @@
              <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi<br>
              <input type="checkbox" name="genre" value="Documentary">Documentary<br>
             Rating(1-10): <input type="number" name="rating"> <br>
-            Image: <input type="text" name="image"> <br>
+            Image(url): <input type="text" name="image"> <br>
             Would Watch Again: <input type="checkbox" name="watchAgain"> <br>
             <input type="submit" name="" value="Create Movie">
         </form>

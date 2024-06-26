@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies Index Page</title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
 
     <h1>Movie Manager</h1>
+    <p class="topPage">A personal journal of movies that you have seen to share with others.</p>
     <nav>
         <a href="/movies/new">Create a new movie</a>
     </nav>
@@ -20,6 +22,9 @@
                     <a href="/movies/<%=movies[i].id %>"><%= movies[i].title %></a>
                     
                 </h2>
+                <% if ( movies[i].image ) {%>
+                    <img src="<%=movies[i].image %>" alt="Movie image">
+                    <%}%>
                 <p>Directed by: <%= movies[i].director %>
                 </p>
                 <p>Genres: <%= movies[i].genre %>
@@ -31,13 +36,10 @@
                     <%} else {%>
                         <p>Not really worth watching again.</p>
                         <%}%>
-                            <% if ( movies[i].image ) {%>
-                                <img src="<%=movies[i].image %>" alt="Movie image">
-                                <%}%>
-                <form action="/movies/<%= movies[i].id %>?_method=DELETE" method="POST">
+                        <form action="/movies/<%= movies[i].id %>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE">
                 </form>
-                <a href="/movies/<%=movies[i].id %>/edit">Edit</a>
+                <a class="edit" href="/movies/<%=movies[i].id %>/edit">Edit</a>
             </l1>
             <%}%>
     </ul>

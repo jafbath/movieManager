@@ -5,17 +5,17 @@ const port = process.env.PORT || 4000
 const methodOverride = require(`method-override`)
 const moviesController = require(`./controllers/movies`)
 
+
 //DATABASE
 
 const Movie = require(`./models/movies`)
 
 
 //MIDDLEWARE
-app.use(`/movies`, moviesController)
 app.use(express.static(`public`))
-app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride(`_method`))
+app.use(`/movies`, moviesController)
 
 
 const mongoURI = `mongodb+srv://jafbath:ripper11@moviemanager.82w3xlf.mongodb.net/`
