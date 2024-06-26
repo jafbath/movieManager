@@ -6,6 +6,9 @@
 ## Description
 Movie Manager is a personal database of movies that you have seen that you can share with others. You can remove, edit and add movies at your leasure. 
 
+## WireFrame
+* <img src="./pictures/project2-wireframe.jpeg" alt="WireFrame Example"/>
+
 ## Table of Contents
 * [Technologies Used](#technologiesused)
 * [Features](#features)
@@ -48,4 +51,5 @@ Movie Manager is a personal database of movies that you have seen that you can s
 * 
     
 ## Works Cited:
-* 
+* lots of w3schools.com... Mainly for the new.ejs and a couple things with css.
+
