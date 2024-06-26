@@ -1,6 +1,7 @@
 const express = require(`express`)
 const app = express()
 const mongoose = require(`mongoose`)
+require(`dotenv`).config()
 const port = process.env.PORT || 4000
 const methodOverride = require(`method-override`)
 const moviesController = require(`./controllers/movies`)
@@ -18,7 +19,7 @@ app.use(methodOverride(`_method`))
 app.use(`/movies`, moviesController)
 
 
-const mongoURI = `mongodb+srv://jafbath:ripper11@moviemanager.82w3xlf.mongodb.net/`
+const mongoURI = process.env.mongoURI
 
 async function connectToMongo() {
     try{

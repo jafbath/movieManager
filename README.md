@@ -1,7 +1,7 @@
 # MovieManager
 
 #### A full-stack web application built using Node.js, Mongoose, Express and EJS.
-<img src="/projects/movieManager/pictures/homePage.jpeg" alt="Movie Manager ScreenShot"/>
+<img src="./pictures/homePage.jpeg" alt="Movie Manager ScreenShot"/>
 
 ## Description
 Movie Manager is a personal database of movies that you have seen that you can share with others. You can remove, edit and add movies at your leasure. 
@@ -21,9 +21,9 @@ Movie Manager is a personal database of movies that you have seen that you can s
 
 
 ## Features
-Users can add movies to the database
-Users can remove movies from the database
-Users can edit movies in the database
+* Users can add movies to the database
+* Users can remove movies from the database
+* Users can edit movies in the database
 
 ## <a name="design"></a>Design
 * Design elements implemented using HTML and CSS. 
