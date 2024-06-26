@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body class="editPage">
     <h1>Edit Movie Page</h1>
     <form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
         Title: <input type="text" name="title" value="<%=movie.title%>"><br>
@@ -20,6 +21,9 @@
         <input type="checkbox" name="genre" value="Fantasy">Fantasy<br>
         <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi<br>
         <input type="checkbox" name="genre" value="Documentary">Documentary<br>
+        <input type="checkbox" name="genre" value="Romance">Romance<br>
+        <input type="checkbox" name="genre" value="Crime">Crime<br>
+        <input type="checkbox" name="genre" value="Western">Western<br>
         Rating: <input type="number" name="rating" value="<%=movie.rating%>"><br>
         Image: <input type="text" name="image" value="<%=movie.image%>"><br>
         Would watch again: <input type="checkbox" name="watchAgain" <% if(movie.watchAgain = true){ %>

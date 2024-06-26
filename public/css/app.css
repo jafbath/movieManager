@@ -19,6 +19,10 @@ body {
     text-align: center;
 }
 
+.editPage {
+    text-align: center;
+}
+
 input[type="submit"] {
     background-color: black; 
     color: white; 
