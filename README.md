@@ -18,6 +18,9 @@ Movie Manager is a personal database of movies that you have seen that you can s
 * JavaScript
 * HTML
 * CSS
+* EJS
+* Mongoose
+* Express
 
 
 ## Features
