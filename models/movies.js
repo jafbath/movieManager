@@ -16,4 +16,3 @@ const Movie = mongoose.model(`Movie`, movieSchema)
 
 module.exports = Movie
 
-// `mongodb+srv://jafbath:ripper11@moviemanager.82w3xlf.mongodb.net/`
