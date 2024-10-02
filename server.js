@@ -9,6 +9,7 @@ const moviesController = require(`./controllers/movies`)
 
 const mongoURI = process.env.MONGOURI
 //DATABASE
+app.set('view engine', 'ejs');
 
 const Movie = require(`./models/movies`)
 
